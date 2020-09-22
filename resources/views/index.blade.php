@@ -75,7 +75,7 @@
         <section class="banner">
             <div class="izquierda">
                 <h1 class="display-4"><span class="sge">SGE</span> Sistema de Geolocalización Electoral</h1>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque, sint, sequi delectus assumenda dolor illum dolorem officia repellendus maiores doloribus placeat ad consectetur. Voluptatem beatae pariatur obcaecati incidunt aliquam repellendus.
+                <p>Ubique y Gestione la informacion de sus afiliados 
                 </p>
                 <div class="link"><a href="#"><span> Leer más </span></a></div>
             </div>
