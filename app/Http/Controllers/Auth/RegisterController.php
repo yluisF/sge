@@ -24,12 +24,6 @@ class RegisterController extends Controller
 
     use RegistersUsers;
 
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
@@ -41,6 +35,13 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+
+    public function redirectPath()
+    {
+
+            return '/registro';
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -50,9 +51,11 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255', 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ],[
+            'name.unique' => 'Este alias ya esta ocupado, Ingresa uno nuevo'
         ]);
     }
 

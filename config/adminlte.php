@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'use_ico_only' => false,
+    'use_ico_only' => true,
     'use_full_favicon' => false,
 
     /*
@@ -45,12 +45,12 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => '<b>System</b>SGE',
+    'logo_img' => 'vendor/adminlte/dist/img/logo.jpg',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'AdminLTE',
+    'logo_img_alt' => 'System-SgE',
 
     /*
     |--------------------------------------------------------------------------
@@ -65,8 +65,8 @@ return [
     */
 
     'usermenu_enabled' => true,
-    'usermenu_header' => false,
-    'usermenu_header_class' => 'bg-primary',
+    'usermenu_header' => true,
+    'usermenu_header_class' => 'bg-danger',
     'usermenu_image' => false,
     'usermenu_desc' => false,
     'usermenu_profile_url' => false,
@@ -85,7 +85,7 @@ return [
 
     'layout_topnav' => null,
     'layout_boxed' => null,
-    'layout_fixed_sidebar' => null,
+    'layout_fixed_sidebar' => true,
     'layout_fixed_navbar' => null,
     'layout_fixed_footer' => null,
 
@@ -101,7 +101,7 @@ return [
     |
     */
 
-    'classes_auth_card' => 'card-outline card-primary',
+    'classes_auth_card' => 'card-outline card-danger',
     'classes_auth_header' => '',
     'classes_auth_body' => '',
     'classes_auth_footer' => '',
@@ -126,9 +126,9 @@ return [
     'classes_content_wrapper' => '',
     'classes_content_header' => '',
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-dark-primary elevation-4',
+    'classes_sidebar' => 'sidebar-dark-danger elevation-4',
     'classes_sidebar_nav' => '',
-    'classes_topnav' => 'navbar-white navbar-light',
+    'classes_topnav' => 'navbar-lime navbar-light',
     'classes_topnav_nav' => 'navbar-expand',
     'classes_topnav_container' => 'container',
 
@@ -144,7 +144,7 @@ return [
     |
     */
 
-    'sidebar_mini' => true,
+    'sidebar_mini' => false,
     'sidebar_collapse' => false,
     'sidebar_collapse_auto_size' => false,
     'sidebar_collapse_remember' => false,
@@ -188,7 +188,7 @@ return [
 
     'use_route_url' => false,
 
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'inicio',
 
     'logout_url' => 'logout',
 
@@ -232,86 +232,61 @@ return [
 
     'menu' => [
         [
-            'text' => 'search',
-            'search' => true,
+            'text' => 'Buscar Afiliado del Partido Politico',
+            'search' => false,
             'topnav' => true,
         ],
         [
             'text' => 'blog',
-            'url'  => 'admin/blog',
+            'route'  => 'formbusca',
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
+            'text'        => 'Usuarios Afiliados',
+            'route'         => 'home', //route de consutla
+            'icon'        => 'fas fa-users',
         ],
         ['header' => 'account_settings'],
         [
-            'text' => 'profile',
+            'text' => 'Actualiza tu Información',
             'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
+            'submenu' =>
+            [
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'Personal',
+                    'route'  =>'actualizarpersonal',
                 ],
                 [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'Ubicación',
+                    'route'  => 'actualizardireccion',
                 ],
             ],
         ],
-        ['header' => 'labels'],
         [
-            'text'       => 'important',
+            'text' => 'Agrega Tu Ubicación',
+            'route'  => 'registrodireccion',//ruta de regsitor ubicacion
+            'icon'  => 'fas fa-map-marked-alt',
+        ],
+        ['header' => 'Busquedas'],
+        [
+            'text'       => 'Busqueda por Seccón',
             'icon_color' => 'red',
-            'url'        => '#',
+            'route'        => 'seccion',
         ],
         [
-            'text'       => 'warning',
+            'text'       => 'Busqueda por Jerarquías',
             'icon_color' => 'yellow',
-            'url'        => '#',
+            'route'        => 'cargos',
         ],
         [
-            'text'       => 'information',
+            'text'       => 'Busqueda por Municipios',
             'icon_color' => 'cyan',
-            'url'        => '#',
+           'route'        => 'municipio',
+        ],
+        [
+            'text'       => 'Busqueda por Colonias',
+            'icon_color' => 'green',
+            'route'        => 'colonia',
         ],
     ],
 
